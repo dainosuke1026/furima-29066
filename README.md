@@ -85,7 +85,7 @@ Things you may want to cover:
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| purchases       | references | null: false, foreign_key: true |
+| purchase        | references | null: false, foreign_key: true |
 | prefectures_id  | integer    | null: false                    |
 | postal_code     | string     | null: false                    |
 | city            | string     | null: false                    |
