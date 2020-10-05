@@ -59,7 +59,6 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :images
 - belongs_to :user
 - belongs_to_active_hash :categories
 - belongs_to_active_hash :status
