@@ -51,7 +51,6 @@ Things you may want to cover:
 | name            | string     | null: false                    |
 | description     | text       | null: false                    |
 | price           | integer    | null: false                    |
-| images_id       | integer    | null: false                    |
 | categories_id   | integer    | null: false                    |
 | status_id       | integer    | null: false                    |
 | costs_id        | integer    | null: false                    |
@@ -87,17 +86,6 @@ Things you may want to cover:
 - belongs_to :users
 - belongs_to_active_hash :prefectures
 - belongs_to :items
-
-## images テーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| image           | string     | null: false                    |
-| item            | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :item
 
 ## categories テーブル (ActiveHash)
 
