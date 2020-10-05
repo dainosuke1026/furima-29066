@@ -60,11 +60,11 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- belongs_to_active_hash :categories
+- belongs_to_active_hash :category
 - belongs_to_active_hash :status
-- belongs_to_active_hash :costs
-- belongs_to_active_hash :prefectures
-- belongs_to_active_hash :days
+- belongs_to_active_hash :cost
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :day
 - has_one :purchase
 
 ## purchases テーブル
