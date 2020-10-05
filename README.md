@@ -49,7 +49,7 @@ Things you may want to cover:
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
 | name            | string     | null: false                    |
-| description     | string     | null: false                    |
+| description     | text       | null: false                    |
 | price           | integer    | null: false                    |
 | images_id       | integer    | null: false                    |
 | categories_id   | integer    | null: false                    |
