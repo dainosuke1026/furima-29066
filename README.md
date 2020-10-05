@@ -94,7 +94,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :purchases
+- belongs_to :purchase
 - belongs_to_active_hash :prefecture
 
 ## categories テーブル (ActiveHash)
