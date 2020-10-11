@@ -116,15 +116,21 @@ RSpec.describe User, type: :model do
       end
 
       it 'ユーザーの名字のフリガナが全角（カタカナ）でなければ登録できないこと' do
-        @user.last_name_kana = 'ﾔﾏﾀﾞ'
-        @user.valid?
-        expect(@user.errors.full_messages).to include('Last name kana Full-width katakana characters')
+        last_name_kana_pattern = ['ﾔﾏﾀﾞ', '山田', 'やまだ']
+        last_name_kana_pattern.each do |name|
+          @user.last_name_kana = name
+          @user.valid?
+          expect(@user.errors.full_messages).to include('Last name kana Full-width katakana characters')
+        end
       end
 
       it 'ユーザーの名前のフリガナが全角（カタカナ）でなければ登録できないこと' do
-        @user.first_name_kana = 'ﾀﾛｳﾞ'
-        @user.valid?
-        expect(@user.errors.full_messages).to include('First name kana Full-width katakana characters')
+        first_name_kana_pattern = ['ﾀﾛｳ', '太郎', 'たろう']
+        first_name_kana_pattern.each do |name|
+          @user.first_name_kana = name
+          @user.valid?
+          expect(@user.errors.full_messages).to include('First name kana Full-width katakana characters')
+        end
       end
 
       it '誕生日が空の時は登録できないこと' do
