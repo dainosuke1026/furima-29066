@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  REAL_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
-  FRIGANA_REGEX = /\A[ァ-ン]+\z/
+  REAL_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
+  FRIGANA_REGEX = /\A[ァ-ン]+\z/.freeze
 
   with_options presence: true do
     validates :nickname

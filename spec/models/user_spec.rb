@@ -116,7 +116,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'ユーザーの名字のフリガナが全角（カタカナ）でなければ登録できないこと' do
-        last_name_kana_pattern = ['ﾔﾏﾀﾞ', '山田', 'やまだ']
+        last_name_kana_pattern = %w[ﾔﾏﾀﾞ 山田 やまだ]
         last_name_kana_pattern.each do |name|
           @user.last_name_kana = name
           @user.valid?
@@ -125,7 +125,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'ユーザーの名前のフリガナが全角（カタカナ）でなければ登録できないこと' do
-        first_name_kana_pattern = ['ﾀﾛｳ', '太郎', 'たろう']
+        first_name_kana_pattern = %w[ﾀﾛｳ 太郎 たろう]
         first_name_kana_pattern.each do |name|
           @user.first_name_kana = name
           @user.valid?
