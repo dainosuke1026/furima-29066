@@ -47,7 +47,7 @@ RSpec.describe Item, type: :model do
     end
 
     it 'priceが9,999,999円を超過すると保存できないこと' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price Out of setting range')
     end
@@ -61,25 +61,25 @@ RSpec.describe Item, type: :model do
     it 'statusを選択していないと保存できないこと' do
       @item.status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status Select")
+      expect(@item.errors.full_messages).to include('Status Select')
     end
 
     it 'costを選択していないと保存できないこと' do
       @item.cost_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Cost Select")
+      expect(@item.errors.full_messages).to include('Cost Select')
     end
 
     it 'prefectureを選択していないと保存できないこと' do
       @item.prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture Select")
+      expect(@item.errors.full_messages).to include('Prefecture Select')
     end
 
     it 'dayを選択していないと保存できないこと' do
       @item.day_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Day Select")
+      expect(@item.errors.full_messages).to include('Day Select')
     end
   end
 end
