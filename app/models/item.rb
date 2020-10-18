@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :day
 
-  PRICE_REGEX = /\A[1-90-9]+\z/.freeze
+  PRICE_REGEX = /\A[1-9]+\z/.freeze
   
   with_options presence: true do
     validates :image
