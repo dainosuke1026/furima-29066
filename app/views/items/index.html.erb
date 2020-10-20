@@ -127,7 +127,7 @@
     <ul class='item-lists'>
       <%= render partial: "item", collection: @items %>
 
-      <% unless @items %>
+      <% if @items.blank? %>
         <%= render partial: "dummy_item" %>
       <% end %>
     </ul>
