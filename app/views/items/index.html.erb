@@ -125,7 +125,7 @@
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
-      <%= item_lists(@items) %>
+      <%= render partial: "item", collection: @items %>
 
       <% unless @items %>
         <%= render partial: "dummy_item" %>
