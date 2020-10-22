@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :purchases
 
   REAL_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
   FRIGANA_REGEX = /\A[ァ-ン]+\z/.freeze
