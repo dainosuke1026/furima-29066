@@ -7,6 +7,7 @@ class PurchasesController < ApplicationController
   end
   
   def create
+    Purchase.create(purchase_params)
   end
 
   private
@@ -16,5 +17,9 @@ class PurchasesController < ApplicationController
     if current_user.id == @item.user.id
       redirect_to controller: :items, action: :index
     end
+  end
+
+  def purchase_params
+    params.require(:purchase).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 end
