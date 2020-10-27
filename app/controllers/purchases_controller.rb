@@ -4,13 +4,13 @@ class PurchasesController < ApplicationController
 
   def new
     @item = Item.find(params[:item_id])
-    @address = Address.new
+    @purchase_address = PurchaseAddress.new
   end
   
   def create
-    purchase = Purchase.create(purchase_params)
-    @address = Address.create(address_params(purchase))
-    if @address.save
+    @purchase_address = PurchaseAddress.new(address_params)
+    if @purchase_address.valid?
+      @purchase_address.save
       redirect_to controller: :items, action: :index
     else
       render 'new'
@@ -26,11 +26,7 @@ class PurchasesController < ApplicationController
     end
   end
 
-  def purchase_params
-    params.permit.merge(user_id: current_user.id, item_id: params[:item_id])
-  end
-
-  def address_params(purchase)
-    params.require(:address).permit(:prefecture_id, :postal_code, :city, :house_number, :building_name, :phone_number).merge(purchase_id: purchase.id)
+  def address_params
+    params.require(:purchase_address).permit(:prefecture_id, :postal_code, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 end
