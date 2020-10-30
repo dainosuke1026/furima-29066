@@ -25,13 +25,13 @@ class PurchasesController < ApplicationController
   end
   
   def move_to_index
-    if current_user.id == item_data.user_id
+    if (current_user.id == item_data.user_id) || item_data.purchase
       redirect_to controller: :items, action: :index
     end
   end
 
   def address_params
-    params.require(:purchase_address).permit(:prefecture_id, :postal_code, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token], price: item_data.price)
+    params.require(:purchase_address).permit(:prefecture_id, :postal_code, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: item_data.id, token: params[:token], price: item_data.price)
   end
 
   def pay_item
