@@ -3,7 +3,6 @@ class PurchasesController < ApplicationController
   before_action :move_to_index
 
   def new
-    @item = Item.find(params[:item_id])
     @purchase_address = PurchaseAddress.new
   end
   
@@ -21,7 +20,7 @@ class PurchasesController < ApplicationController
   private
 
   def item_data
-    Item.find(params[:item_id])
+    @item = Item.find(params[:item_id])
   end
   
   def move_to_index
