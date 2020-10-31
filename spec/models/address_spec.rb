@@ -39,7 +39,7 @@ RSpec.describe PurchaseAddress, type: :model do
       @address.valid?
       expect(@address.errors.full_messages).to include("Phone number can't be blank")
     end
-    
+
     it 'prefectureを選択していないと保存できないこと' do
       @address.prefecture_id = 1
       @address.valid?
@@ -47,15 +47,15 @@ RSpec.describe PurchaseAddress, type: :model do
     end
 
     it '郵便番号にハイフンが必要であること' do
-      @address.postal_code = "1234567"
+      @address.postal_code = '1234567'
       @address.valid?
-      expect(@address.errors.full_messages).to include("Postal code Input correctly")
+      expect(@address.errors.full_messages).to include('Postal code Input correctly')
     end
 
     it '電話番号はハイフン不要であること' do
-      @address.phone_number = "090-1234-5678"
+      @address.phone_number = '090-1234-5678'
       @address.valid?
-      expect(@address.errors.full_messages).to include("Phone number Input only number")
+      expect(@address.errors.full_messages).to include('Phone number Input only number')
     end
   end
 end
