@@ -57,5 +57,11 @@ RSpec.describe PurchaseAddress, type: :model do
       @address.valid?
       expect(@address.errors.full_messages).to include('Phone number Input only number')
     end
+
+    it '電話番号は11桁以内であること' do
+      @address.phone_number = '090123456789'
+      @address.valid?
+      expect(@address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
+    end
   end
 end

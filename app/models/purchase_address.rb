@@ -9,7 +9,7 @@ class PurchaseAddress
     validates :postal_code, format: { with: POSTAL_CODE_REGEX, message: 'Input correctly' }
     validates :city
     validates :house_number
-    validates :phone_number, format: { with: PHONE_NUMBER_REGEX, message: 'Input only number' }
+    validates :phone_number, format: { with: PHONE_NUMBER_REGEX, message: 'Input only number' }, length: { maximum: 11 }
     validates :token
   end
 
