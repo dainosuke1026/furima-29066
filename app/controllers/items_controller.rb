@@ -26,6 +26,11 @@ class ItemsController < ApplicationController
   def edit
   end
 
+  def update
+    set_item.update(item_params)
+    redirect_to item_path
+  end
+
   private
 
   def item_params
