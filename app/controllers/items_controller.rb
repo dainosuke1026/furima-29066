@@ -27,8 +27,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    set_item.update(item_params)
-    redirect_to item_path
+    if set_item.update(item_params)
+      redirect_to item_path
+    else
+      render 'edit'
+    end
   end
 
   private
